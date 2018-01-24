@@ -1,8 +1,8 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Player\PlayerStats.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Player\LadderMovement.cs">
     <Files>
-      <File FileName="Assets\Scripts\Player\PlayerStats.cs" Line="24" Column="3" />
+      <File FileName="Assets\Scripts\Player\LadderMovement.cs" Line="40" Column="90" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
