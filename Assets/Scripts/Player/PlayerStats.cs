@@ -37,11 +37,6 @@ public class PlayerStats : MonoBehaviour {
 	}
 
 
-
-	//use this for initialization
-	void Start(){
-		
-	}
 	
 	//update is called once per frame
 	void FixedUpdate(){

@@ -229,7 +229,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   climbingSpeed: 2
   fastClimbingSpeed: 4
-  jumpingOff: 5
 --- !u!33 &6220513
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -244,7 +243,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 6220507}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 7, z: 0}
+  m_LocalPosition: {x: 0, y: 6, z: 0}
   m_LocalScale: {x: 1.5, y: 2, z: 1.5}
   m_Children:
   - {fileID: 663992866}
@@ -273,7 +272,7 @@ GameObject:
   - component: {fileID: 55148466}
   m_Layer: 0
   m_Name: Level
-  m_TagString: Level
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -340,6 +339,10 @@ Prefab:
     - target: {fileID: 1079336841438942, guid: c25b811cc9f48f64d81b5c306455700c, type: 2}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1079336841438942, guid: c25b811cc9f48f64d81b5c306455700c, type: 2}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c25b811cc9f48f64d81b5c306455700c, type: 2}
@@ -581,12 +584,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114404804603702514, guid: 24c54cbd1bba36042b0b1bb96f17187f,
+    - target: {fileID: 114191224878608256, guid: 24c54cbd1bba36042b0b1bb96f17187f,
         type: 2}
       propertyPath: player
       value: 
       objectReference: {fileID: 6220507}
-    - target: {fileID: 114191224878608256, guid: 24c54cbd1bba36042b0b1bb96f17187f,
+    - target: {fileID: 114404804603702514, guid: 24c54cbd1bba36042b0b1bb96f17187f,
         type: 2}
       propertyPath: player
       value: 
@@ -604,7 +607,7 @@ GameObject:
   - component: {fileID: 1412847166}
   m_Layer: 8
   m_Name: Ground
-  m_TagString: Ground
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -734,7 +737,7 @@ GameObject:
   - component: {fileID: 1977047411}
   m_Layer: 0
   m_Name: Interaction
-  m_TagString: Interaction
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

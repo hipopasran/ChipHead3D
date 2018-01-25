@@ -7,7 +7,6 @@ public class LadderMovement : MonoBehaviour {
 	//character's variable
 	public float climbingSpeed; //character's climbing speed
 	public float fastClimbingSpeed; //character's fast climbing speed
-	public float jumpingOff; //character's jump power
 	float speed;
 
 	//component variables
@@ -35,10 +34,6 @@ public class LadderMovement : MonoBehaviour {
 
 		if(playerStats.isGrounded){
 			playerRigidbody.velocity = new Vector3(horizontalDirection * speed, playerRigidbody.velocity.y, 0);
-		}
-
-		if((!playerStats.isGrounded) && (horizontalDirection != 0) && (verticalDirection > 0)){
-			playerRigidbody.AddForce(new Vector3(horizontalDirection * jumpingOff, 0, 0), ForceMode.Impulse);
 		}
 	}
 

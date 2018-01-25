@@ -1,8 +1,9 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Player\LadderMovement.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Interaction\Switch\SwitchTrigger.cs">
     <Files>
-      <File FileName="Assets\Scripts\Player\LadderMovement.cs" Line="40" Column="90" />
+      <File FileName="Assets\Scripts\Interaction\Switch\SwitchTrigger.cs" Line="15" Column="9" />
+      <File FileName="Assets\Scripts\Interaction\Switch\Switch.cs" Line="14" Column="73" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
