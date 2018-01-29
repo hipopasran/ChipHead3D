@@ -224,6 +224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGrounded: 0
+  OnHang: 0
   onLadder: 0
   groundCheckLayer:
     serializedVersion: 2
@@ -243,4 +244,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkingSpeed: 5
   runningSpeed: 7
-  jump: 1.5
+  jump: 100
