@@ -4,27 +4,26 @@ using UnityEngine;
 
 public class OnLadderTrigger : MonoBehaviour {
 
-	//component variable
-	public GameObject player;
-
-
-
 	//switching scripts
-	void Change(){
-		player.GetComponent<PlayerMovement>().enabled = !player.GetComponent<PlayerMovement>().enabled;
+	void Change(Collider player){
+		player.GetComponent<GroundMovement>().enabled = !player.GetComponent<GroundMovement>().enabled;
+		player.GetComponent<Stats>().enabled = !player.GetComponent<Stats>().enabled; //this
+		player.GetComponent<Stats>().enabled = !player.GetComponent<Stats>().enabled; //and this shit are need
 		player.GetComponent<Rigidbody>().useGravity = !player.GetComponent<Rigidbody>().useGravity;
-		player.GetComponent<LadderMovement>().enabled = !player.GetComponent<LadderMovement> ().enabled;
+		player.GetComponent<LadderMovement>().enabled = !player.GetComponent<LadderMovement>().enabled;
 	}
 
 
 
 	//when character enter the trigger collider
-	void OnTriggerEnter(){
-		Change();
+	void OnTriggerEnter(Collider player){
+		Change(player);
+		Input.ResetInputAxes();
 	}
 	
 	//when character leave the trigger collider
-	void OnTriggerExit(){
-		Change();
+	void OnTriggerExit(Collider player){
+		Change(player);
+		Input.ResetInputAxes();
 	}
 }

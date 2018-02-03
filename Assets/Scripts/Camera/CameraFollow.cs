@@ -4,21 +4,23 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour {
 
-	public Transform target; //camera's target
+	//camera
 	public float smoothing; //speed of camera's movement, delay
+	public float offset; //distance from target to the camera
 
-	Vector3 offset; //distance from target to camera
+	//components
+	Transform target; //camera's target
 
 
 
 	//use this for initialization
-	void Start(){
-		offset = transform.position - target.position;
+	void Awake(){
+		target = GameObject.FindGameObjectWithTag("Player").transform;
 	}
 	
 	//update is called once per delta
 	void FixedUpdate(){
-		Vector3 newCameraPosition = target.position + offset;
+		Vector3 newCameraPosition = new Vector3(target.position.x, target.position.y, target.position.z + offset);
 
 		transform.position = Vector3.Lerp(transform.position, newCameraPosition, smoothing * Time.deltaTime);
 	}
