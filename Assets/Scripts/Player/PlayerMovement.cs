@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour{
 	float speed; //character's speed
 	public float walkingSpeed; //character's walking speed
 	public float runningSpeed; //character's running speed
-	public float jump; //character's jump height
+    public float jump; //character's jump height
 
 	//component variables
 	Rigidbody playerRigidbody; //character's Rigidbody component
@@ -31,8 +31,10 @@ public class PlayerMovement : MonoBehaviour{
 
 		//jump
 		if(playerStats.isGrounded && (verticalDirection > 0)){
-			playerRigidbody.AddForce(new Vector3 (0, jump, 0), ForceMode.Impulse);
-		}
+            
+            playerRigidbody.AddForce(new Vector3 (0, jump*Time.deltaTime, 0), ForceMode.Impulse);
+            //Input.ResetInputAxes();
+        }
 
 		//move
 		if(playerStats.isGrounded){
@@ -41,7 +43,8 @@ public class PlayerMovement : MonoBehaviour{
 
 			playerRigidbody.velocity = new Vector3(horizontalDirection * speed, playerRigidbody.velocity.y, 0);
 		}
-	}
+        
+    }
 
 
 
@@ -54,6 +57,7 @@ public class PlayerMovement : MonoBehaviour{
 	//update is fixed called once per delta
 	void FixedUpdate(){
 		Move();
-	}
+        
+    }
 
 }

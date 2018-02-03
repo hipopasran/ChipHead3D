@@ -7,7 +7,11 @@ TagManager:
   - Level
   - Ground
   - Interaction
+<<<<<<< HEAD
   - Area
+=======
+  - Hang
+>>>>>>> 342fa9bd59544a9bea79d582b3a8fd15c97de27b
   layers:
   - Default
   - TransparentFX

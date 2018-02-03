@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class AboveHangTrigger : MonoBehaviour {
+<<<<<<< HEAD
 
 	//while game object in the trigger colider
 	void OnTriggerStay(Collider player){
@@ -22,4 +23,37 @@ public class AboveHangTrigger : MonoBehaviour {
 		player.GetComponent<Transform>().position = new Vector3(xPosition, yPosition, 0);
 	}
 
+=======
+    //component variable
+    public GameObject player;
+
+
+
+    //switching scripts
+    void Change()
+    {
+       // player.GetComponent<PlayerMovement>().enabled = !player.GetComponent<PlayerMovement>().enabled;
+        //player.GetComponent<Rigidbody>().useGravity = !player.GetComponent<Rigidbody>().useGravity;
+        //player.GetComponent<HangMovement>().enabled = !player.GetComponent<HangMovement>().enabled;
+    }
+
+
+
+    //when character enter the trigger collider
+    void OnTriggerEnter()
+    {
+        
+        Change();
+        player.GetComponent<HangMovement>().enabled = true;
+    }
+
+    //when character leave the trigger collider
+    void OnTriggerExit()
+    {
+        Change();
+        player.GetComponent<PlayerMovement>().enabled = true;
+        player.GetComponent<Rigidbody>().useGravity = true;
+        player.GetComponent<HangMovement>().enabled = false;
+    }
+>>>>>>> 342fa9bd59544a9bea79d582b3a8fd15c97de27b
 }

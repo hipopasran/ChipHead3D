@@ -6,6 +6,7 @@ public class PlayerStats : MonoBehaviour {
 
 	//stats variables
 	public bool isGrounded; //if character is grounded, then true
+    public bool OnHang; //Проверка на возможность вскарабкаться
 	public bool onLadder; //if character on a ladder, then true
 
 	//ground check variables
@@ -36,6 +37,25 @@ public class PlayerStats : MonoBehaviour {
 		}
 	}
 
+
+    void OnTriggerEnter(Collider coll)
+    {   
+        //Есть возможность повиснуть
+        if(coll.gameObject.tag=="Hang")
+        {
+            OnHang = true;
+        }
+    }
+    void OnTriggerExit(Collider coll)
+    {
+        
+        //Не может повиснуть
+        if (coll.gameObject.tag=="Hang")
+        {
+            OnHang = false;
+        }
+    }
+    
 
 	
 	//update is called once per frame
