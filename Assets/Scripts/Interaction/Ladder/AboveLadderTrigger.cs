@@ -4,32 +4,36 @@ using UnityEngine;
 
 public class AboveLadderTrigger : MonoBehaviour {
 
-	//component variable
-	public GameObject player;
-
-
-
-	//switching scripts
-	void Change(){
-		player.GetComponent<PlayerMovement>().enabled = !player.GetComponent<PlayerMovement>().enabled;
-		player.GetComponent<Rigidbody>().useGravity = !player.GetComponent<Rigidbody>().useGravity;
-		player.GetComponent<LadderMovement>().enabled = !player.GetComponent<LadderMovement>().enabled;
-	}
-
-
-
-	//when character enter the trigger collider
-	void OnTriggerEnter(){
-		if(!player.GetComponent<PlayerStats>().onLadder){
-			player.GetComponent<Transform>().position = new Vector3(transform.position.x - transform.lossyScale.x, transform.position.y - player.transform.lossyScale.y, 0);
+	int Direction(Collider player){
+		if(player.transform.position.x > GetComponentInParent<Transform>().position.x){
+			return -1;
 		}else{
-			player.GetComponent<Transform>().position = new Vector3(transform.position.x + player.transform.lossyScale.x, transform.position.y, 0);
+			return 1;
 		}
-		Change();
 	}
 
-	//when character leave the trigger collider
-	void OnTriggerExit(){
-		Change();
+
+
+	//while game object in the trigger colider
+	void OnTriggerStay(Collider player){
+		//press button
+		float verticalDirection = Input.GetAxis("Vertical");
+
+		//positioning
+		float xPosition = player.transform.position.x;
+		float yPosition = player.transform.position.y;
+		if(verticalDirection > 0 && !player.GetComponent<Stats>().isGrounded){
+			xPosition = transform.position.x + Direction(player) * player.transform.lossyScale.x/2;
+			yPosition = transform.position.y + player.transform.lossyScale.y;
+			Input.ResetInputAxes();
+		}else if(verticalDirection < 0 && player.GetComponent<Stats>().isGrounded){
+			xPosition = GetComponentInParent<Transform>().position.x + Direction(player) * (GetComponentInParent<Transform>().lossyScale.x/2 + player.transform.lossyScale.x/2);
+			yPosition = transform.position.y - player.transform.lossyScale.y;
+			Input.ResetInputAxes();
+		}
+			
+		//translate
+		player.GetComponent<Transform>().position = new Vector3(xPosition, yPosition, 0);
 	}
+
 }

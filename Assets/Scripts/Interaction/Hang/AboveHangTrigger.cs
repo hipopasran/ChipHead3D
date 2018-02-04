@@ -3,35 +3,33 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class AboveHangTrigger : MonoBehaviour {
-    //component variable
-    public GameObject player;
+
+	int Direction(Collider player){
+		if(player.transform.position.x < transform.position.x){
+			return 1;
+		}else{
+			return -1;
+		}
+	}
 
 
 
-    //switching scripts
-    void Change()
-    {
-       // player.GetComponent<PlayerMovement>().enabled = !player.GetComponent<PlayerMovement>().enabled;
-        //player.GetComponent<Rigidbody>().useGravity = !player.GetComponent<Rigidbody>().useGravity;
-        //player.GetComponent<HangMovement>().enabled = !player.GetComponent<HangMovement>().enabled;
-    }
+	//while game object in the trigger colider
+	void OnTriggerStay(Collider player){
+		//press button
+		float verticalDirection = Input.GetAxis("Vertical");
 
+		//check
+		float xPosition = player.transform.position.x;
+		float yPosition = player.transform.position.y;
+		if(verticalDirection < 0){
+			xPosition = GetComponentInParent<Transform>().position.x + Direction(player) * player.transform.lossyScale.x/2;
+			yPosition = GetComponentInParent<Transform>().position.y - player.transform.lossyScale.y;
+			Input.ResetInputAxes();
+		}
 
+		//translate
+		player.GetComponent<Transform>().position = new Vector3(xPosition, yPosition, 0);
+	}
 
-    //when character enter the trigger collider
-    void OnTriggerEnter()
-    {
-        
-        Change();
-        player.GetComponent<HangMovement>().enabled = true;
-    }
-
-    //when character leave the trigger collider
-    void OnTriggerExit()
-    {
-        Change();
-        player.GetComponent<PlayerMovement>().enabled = true;
-        player.GetComponent<Rigidbody>().useGravity = true;
-        player.GetComponent<HangMovement>().enabled = false;
-    }
 }
