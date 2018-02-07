@@ -8,7 +8,6 @@ TagManager:
   - Ground
   - Interaction
   - Area
-  - Rope
   layers:
   - Default
   - TransparentFX
