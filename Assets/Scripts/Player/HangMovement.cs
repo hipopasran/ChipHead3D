@@ -5,10 +5,13 @@ using UnityEngine;
 public class HangMovement : MonoBehaviour {
 		
 	int Direction(Collider hangTrigger){
-		if(hangTrigger.transform.position.x < transform.position.x){
-			return -1;
-		}else{
+		float aboveHangCollider = hangTrigger.transform.parent.Find("AboveHangTrigger").transform.position.x;
+		float parentCollider = hangTrigger.GetComponentInParent<Transform>().position.x;
+
+		if(aboveHangCollider > parentCollider){
 			return 1;
+		}else{
+			return -1;
 		}
 	}
 
@@ -27,9 +30,16 @@ public class HangMovement : MonoBehaviour {
 				GetComponent<Rigidbody>().useGravity = true;
 				Input.ResetInputAxes();
 			}else if(verticalDirection > 0){
-				xPosition = hangTrigger.transform.position.x + Direction(hangTrigger) * transform.lossyScale.x;
-				yPosition = hangTrigger.transform.position.y + transform.lossyScale.y;
+				xPosition = hangTrigger.GetComponentInParent<Transform>().position.x + Direction(hangTrigger) * transform.lossyScale.x;
+				yPosition = hangTrigger.GetComponentInParent<Transform>().position.y + transform.lossyScale.y;
 				Input.ResetInputAxes();
+			}
+		}else if(hangTrigger.name == "AboveHangTrigger"){
+			if(verticalDirection < 0){
+				xPosition = hangTrigger.GetComponentInParent<Transform>().position.x - Direction (hangTrigger) * transform.lossyScale.x/2;
+				yPosition = hangTrigger.GetComponentInParent<Transform>().position.y - transform.lossyScale.y;
+				Input.ResetInputAxes();
+				Debug.Log(transform.lossyScale.x/2);
 			}
 		}
 
