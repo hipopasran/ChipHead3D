@@ -16,6 +16,7 @@ public class Stats : MonoBehaviour {
 	public bool isMoving; //if character is walking, then true
 	public bool onLadder; //if character on a ladder, then true
 	public bool isNoisy; //if character is noisy, then true
+    public bool swinging; //if on rope, then true
 
 	//areas
 	public bool glass; //if character in the glass area, then true
@@ -63,13 +64,43 @@ public class Stats : MonoBehaviour {
 		}
 	}
 
+    void OnCollisionEnter(Collision other)
+    {
+        if(other.gameObject.tag=="Rope")
+        {
+            Input.ResetInputAxes();
+            swinging = true;
 
+            HingeJoint hinge = gameObject.AddComponent<HingeJoint>() as HingeJoint;
+            hinge.connectedBody = other.gameObject.GetComponent<Rigidbody>();
+        }
+    }
 
-	
+	void Update()
+    {
+        
+    }
 	//update is called once per frame
-	void FixedUpdate(){
-		IsGrounded();
+	void FixedUpdate()
+    {
+
+        if (swinging == false)
+        {
+            GetComponent<RopeMovement>().enabled = false;
+            GetComponent<GroundMovement>().enabled = true;
+            GetComponent<BoxCollider>().enabled = true;
+            
+        }
+        else
+        {
+            GetComponent<RopeMovement>().enabled = true;
+            GetComponent<GroundMovement>().enabled = false;
+            GetComponent<BoxCollider>().enabled = false;
+        }
+
+        IsGrounded();
 		OnLadder();
+        
 		IsMoving();
 		IsNoisy();
 	}
