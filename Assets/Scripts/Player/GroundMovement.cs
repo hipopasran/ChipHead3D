@@ -50,6 +50,8 @@ public class GroundMovement : MonoBehaviour{
 	//update is fixed called once per delta
 	void FixedUpdate(){
 		Move();
+
+
 	}
 
 }
