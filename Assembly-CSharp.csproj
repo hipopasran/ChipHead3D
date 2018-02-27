@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{76E433D7-BFA2-5349-5D5B-C67FC4CA1FC3}</ProjectGuid>
+    <ProjectGuid>{291E8706-AF15-0BD7-FC2B-8BAC4573AA95}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -52,6 +52,8 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Area\AreaTrigger.cs" />
+     <Compile Include="Assets\Scripts\Area\ControlPoint.cs" />
+     <Compile Include="Assets\Scripts\Area\Level1\DoorTrigger.cs" />
      <Compile Include="Assets\Scripts\Camera\CameraFollow.cs" />
      <Compile Include="Assets\Scripts\Interaction\Hang\OnHangTrigger.cs" />
      <Compile Include="Assets\Scripts\Interaction\Ladder\AboveLadderTrigger.cs" />

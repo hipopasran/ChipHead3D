@@ -20,4 +20,5 @@ public class AreaTrigger : MonoBehaviour {
 	void OnTriggerExit(Collider player){
 		player.GetComponent<Stats>().glass = false;
 	}
+
 }
